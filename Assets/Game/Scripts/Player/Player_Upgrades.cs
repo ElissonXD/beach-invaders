@@ -15,18 +15,36 @@ public class Player_Upgrades : MonoBehaviour
     private int[] currentlevelPlayer = {0, 0, 0};
     private int[] currentlevelSpecial = {0, 0}; 
 
-    public void Choose_Options()
+    public string[] Choose_Options()
     {
         int index_ball = Random.Range(0, 2);
         int index_player = Random.Range(0, 2);
         int index_special = Random.Range(0, 1);
 
+        return new string[] {
+            upgradesBall[index_ball],
+            upgradesPlayer[index_player],
+            upgradesSpecial[index_special]
+        };
+
     }
 
-    void Upgrade_Health()
+    public void Upgrade_Health()
     {
         playerConfig.playerHealth += 20;
         currentlevelPlayer[0] += 1;
+    }
+
+    public void Upgrade_Range()
+    {
+        playerConfig.playerRange += 1.0f;
+        currentlevelPlayer[1] += 1;
+    }
+
+    public void Upgrade_Defense()
+    {
+        playerConfig.playerDefense += 0.1f;
+        currentlevelPlayer[2] += 1;
     }
 
 

@@ -7,11 +7,6 @@ public class Player_Config : MonoBehaviour
     public float playerRange = 10.0f;
     public float playerDefense = 1.0f;
 
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
         

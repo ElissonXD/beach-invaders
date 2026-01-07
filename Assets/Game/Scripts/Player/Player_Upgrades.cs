@@ -1,51 +1,27 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
+using Microsoft.Unity.VisualStudio.Editor;
 using NUnit.Framework;
+using Unity.VisualScripting;
+using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class Player_Upgrades : MonoBehaviour
 {
+    public UpgradeStats[] statsupgrades;
+    //placeholder balls stats
+    //placeholder other upgrades
 
-    // algum objeto relacionado ao controle de ondas totais
-    Player_Config playerConfig;
-    private string[] upgradesBall = {"Damage", "Speed", "Size"};
-    private string[] upgradesPlayer = {"Health", "Range", "Defense"};
-    private string[] upgradesSpecial = {"Arena_Change", "Turret"};
-
-    private int[] currentlevelBall = {0, 0, 0};
-    private int[] currentlevelPlayer = {0, 0, 0};
-    private int[] currentlevelSpecial = {0, 0}; 
-
-    public string[] Choose_Options()
+    public UpgradeAbstract[] Choose_Options()
     {
-        int index_ball = Random.Range(0, 2);
-        int index_player = Random.Range(0, 2);
-        int index_special = Random.Range(0, 1);
+        UpgradeStats option1 = statsupgrades[0]; //placeholder
+        UpgradeStats option2 = statsupgrades[1]; // placeholder
+        UpgradeStats option3 = statsupgrades[2]; // placeholderu
 
-        return new string[] {
-            upgradesBall[index_ball],
-            upgradesPlayer[index_player],
-            upgradesSpecial[index_special]
-        };
-
+        return new UpgradeAbstract[] { option1, option2, option3 };
     }
-
-    public void Upgrade_Health()
-    {
-        playerConfig.playerHealth += 20;
-        currentlevelPlayer[0] += 1;
-    }
-
-    public void Upgrade_Range()
-    {
-        playerConfig.playerRange += 1.0f;
-        currentlevelPlayer[1] += 1;
-    }
-
-    public void Upgrade_Defense()
-    {
-        playerConfig.playerDefense += 0.1f;
-        currentlevelPlayer[2] += 1;
-    }
-
-
 }

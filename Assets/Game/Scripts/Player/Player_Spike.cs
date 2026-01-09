@@ -3,16 +3,26 @@ using UnityEngine.InputSystem;
 
 public class PlayerSpike : MonoBehaviour
 {
-    [SerializeField] private float jumpDistance = 3f;
-    [SerializeField] private float jumpDuration = 1f;
+    [Header("Settings - Tamanho")]
+    [SerializeField] private float growthMultiplier = 2.5f;
+    [SerializeField] private float actionDuration = 1f;
+
+    [Header("Settings - Movimento")]
+    [SerializeField] private Vector3 moveOffset = new Vector3(0f, 1f, 0f);
+    
+    [Header("References")]
     [SerializeField] private PlayerController playerController;
 
     private SpriteRenderer spriteRenderer;
-    private bool isJumping;
-    private bool isFalling;
+    private bool isActing;
+    
+    private Vector3 originalScale;
+    private Vector3 targetScale;
+    
     private Vector3 startPos;
-    private Vector3 jumpPeak;
-    private float jumpProgress;
+    private Vector3 targetPos;
+
+    private float progress;
 
     private void Awake()
     {
@@ -22,47 +32,58 @@ public class PlayerSpike : MonoBehaviour
 
     private void Update()
     {
-        if (Mouse.current.leftButton.wasPressedThisFrame && !isJumping)
+        if (Mouse.current.leftButton.wasPressedThisFrame && !isActing)
         {
-            isJumping = true;
-            startPos = transform.position;
-            jumpPeak = startPos + Vector3.up * jumpDistance;
-            jumpProgress = 0f;
-            playerController.enabled = false;
+            StartAction();
         }
 
-        if (isJumping)
+        if (isActing)
         {
-            jumpProgress += Time.deltaTime / jumpDuration;
-            if (jumpProgress < 0.5f)
+            progress += Time.deltaTime / actionDuration;
+
+            if (progress < 0.5f)
             {
-                float riseT = jumpProgress / 0.5f;
-                transform.position = Vector3.Lerp(startPos, jumpPeak, riseT);
+                float t = progress / 0.5f;
+                
+                transform.position = Vector3.Lerp(startPos, targetPos, t);
+                transform.localScale = Vector3.Lerp(originalScale, targetScale, t);
             }
             else
             {
-                float fallT = (jumpProgress - 0.5f) / 0.5f;
-                transform.position = Vector3.Lerp(jumpPeak, startPos, fallT);
+                float t = (progress - 0.5f) / 0.5f;
                 
-                if (jumpProgress >= 1f)
+                transform.position = Vector3.Lerp(targetPos, startPos, t);
+                transform.localScale = Vector3.Lerp(targetScale, originalScale, t);
+                
+                if (progress >= 1f)
                 {
-                    isJumping = false;
-                    playerController.enabled = true;
-                    transform.position = startPos;
+                    EndAction();
                 }
             }
         }
     }
 
-    private void StartFall()
+    private void StartAction()
     {
-        isFalling = true;
+        isActing = true;
+        progress = 0f;
+        
+        originalScale = transform.localScale;
+        targetScale = originalScale * growthMultiplier;
+
+        startPos = transform.position;
+        targetPos = startPos + moveOffset;
+
+        if(playerController != null) playerController.enabled = false;
     }
 
-    private void EndJump()
+    private void EndAction()
     {
-        isJumping = false;
-        playerController.enabled = true;
+        isActing = false;
+        
+        transform.localScale = originalScale;
         transform.position = startPos;
+        
+        if(playerController != null) playerController.enabled = true;
     }
 }

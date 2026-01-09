@@ -17,10 +17,15 @@ public class Crab_Bubble : MonoBehaviour
             if (coodldown_timer <= coodldown)
             {
                 coodldown_timer += Time.deltaTime;
+                if (coodldown_timer >= coodldown/2)
+                {
+                    crab_Settings.animator.SetBool("IsShooting", true);
+                }
             }
             else
             {
                 coodldown_timer = 0f;
+                crab_Settings.animator.SetBool("IsShooting", false);
                 Instantiate(bubble, bubble_spawn.position, bubble_spawn.rotation);
             }
         }

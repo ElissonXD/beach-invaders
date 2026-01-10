@@ -14,7 +14,7 @@ public class PlayerSpike : MonoBehaviour
     [SerializeField] private PlayerController playerController;
 
     private SpriteRenderer spriteRenderer;
-    private bool isActing;
+    public bool isJumping;
     
     private Vector3 originalScale;
     private Vector3 targetScale;
@@ -32,12 +32,12 @@ public class PlayerSpike : MonoBehaviour
 
     private void Update()
     {
-        if (Mouse.current.leftButton.wasPressedThisFrame && !isActing)
+        if (Mouse.current.leftButton.wasPressedThisFrame && !isJumping)
         {
             StartAction();
         }
 
-        if (isActing)
+        if (isJumping)
         {
             progress += Time.deltaTime / actionDuration;
 
@@ -65,7 +65,7 @@ public class PlayerSpike : MonoBehaviour
 
     private void StartAction()
     {
-        isActing = true;
+        isJumping = true;
         progress = 0f;
         
         originalScale = transform.localScale;
@@ -79,7 +79,7 @@ public class PlayerSpike : MonoBehaviour
 
     private void EndAction()
     {
-        isActing = false;
+        isJumping = false;
         
         transform.localScale = originalScale;
         transform.position = startPos;

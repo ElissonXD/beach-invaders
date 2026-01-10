@@ -28,6 +28,7 @@ public class ballDestinationBehavior : MonoBehaviour
         else
         {
             transform.localScale = new Vector3(0, 0, 0);
+            transform.position = ball.transform.position;
             destinationHitBox.radius = 0;
             counter = 0;
 

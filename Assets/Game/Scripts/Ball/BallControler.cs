@@ -1,16 +1,25 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class BallController : MonoBehaviour
 {
+    [Header("Speed")]
     [SerializeField] private float moveSpeed = 10f;
-
     [SerializeField] private float jumpScaleMultiplier = 1.5f;
 
+    [Header("Boundaries")]
     [SerializeField] private Vector2 minBounds = new Vector2(-5.29f, -4.02f);
     [SerializeField] private Vector2 maxBounds = new Vector2(5.28f, -1.58f);
 
-    private Rigidbody2D rb;
+    [Header("Target Components")]
+    public CircleCollider2D targetCollider;
+    public GameObject target;
+
+    [Header("Player Components")]
+    public GameObject player;
+    private PlayerSpike playerScript;
+
     private Camera mainCamera;
 
     public Vector3 originalScale;
@@ -18,13 +27,17 @@ public class BallController : MonoBehaviour
     public bool isReturning = false;
     public float movementDuration;
     public float currentTimer;
+    private float progress;
+
+    private Vector2 startPos;
     public Vector2 targetPos;
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
         mainCamera = Camera.main;
         originalScale = transform.localScale;
+        playerScript = player.GetComponent<PlayerSpike>();
+
     }
 
     private void Update()
@@ -33,11 +46,11 @@ public class BallController : MonoBehaviour
         {
             currentTimer += Time.deltaTime;
 
-            float progress = currentTimer / movementDuration;
+            progress = currentTimer / movementDuration;
 
             if (progress >= 1f)
             {
-                rb.linearVelocity = Vector2.zero;
+                transform.position = targetPos;
                 transform.localScale = originalScale;
                 isMoving = false;
 
@@ -52,6 +65,8 @@ public class BallController : MonoBehaviour
             }
             else
             {
+                transform.position = Vector2.Lerp(startPos, targetPos, progress);
+
                 float arcHeight = Mathf.Sin(progress * Mathf.PI);
                 Vector3 newScale = originalScale + (originalScale * jumpScaleMultiplier * arcHeight);
                 transform.localScale = newScale;
@@ -61,7 +76,7 @@ public class BallController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") && (!isMoving || Vector3.Distance(transform.position, target.transform.position) < targetCollider.radius + 1) && playerScript.isJumping)
         {
             if (Mouse.current == null) return;
 
@@ -77,15 +92,16 @@ public class BallController : MonoBehaviour
     {
         float targetPosX = Random.Range(minBounds.x, maxBounds.x);
         float targetPosY = Random.Range(minBounds.y, maxBounds.y);
-        targetPos = new Vector2(targetPosX, targetPosY);
+        Vector2 randomTarget = new Vector2(targetPosX, targetPosY);
 
-        MoveToPosition(targetPos, true);
+        MoveToPosition(randomTarget, true);
     }
 
-    private void MoveToPosition(Vector2 targetPos, bool returningState)
+    private void MoveToPosition(Vector2 newTargetPos, bool returningState)
     {
-        Vector2 startPos = transform.position;
-        Vector2 direction = (targetPos - startPos).normalized;
+        startPos = transform.position;
+        targetPos = newTargetPos;
+
         float distance = Vector2.Distance(startPos, targetPos);
 
         if (distance < 0.1f)
@@ -100,14 +116,12 @@ public class BallController : MonoBehaviour
         isMoving = true;
         isReturning = returningState;
 
-        rb.linearVelocity = direction * moveSpeed;
     }
 
     private void StopMovement()
     {
         isMoving = false;
         isReturning = false;
-        rb.linearVelocity = Vector2.zero;
         transform.localScale = originalScale;
     }
 }

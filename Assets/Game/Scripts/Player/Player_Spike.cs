@@ -9,7 +9,6 @@ public class PlayerSpike : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
     private bool isJumping;
-    private bool isFalling;
     private Vector3 startPos;
     private Vector3 jumpPeak;
     private float jumpProgress;
@@ -52,17 +51,5 @@ public class PlayerSpike : MonoBehaviour
                 }
             }
         }
-    }
-
-    private void StartFall()
-    {
-        isFalling = true;
-    }
-
-    private void EndJump()
-    {
-        isJumping = false;
-        playerController.enabled = true;
-        transform.position = startPos;
     }
 }

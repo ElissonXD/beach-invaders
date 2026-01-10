@@ -112,7 +112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Crab_Bubble
   crab_Settings: {fileID: 458609380383240650}
   bubble_spawn: {fileID: 2379616941900643739}
-  bubble: {fileID: 0}
+  bubble: {fileID: 2449364258513099938, guid: fa7eda379a089c9419e068d7046f1ae2, type: 3}
   coodldown: 5
 --- !u!114 &6730900820172671462
 MonoBehaviour:
@@ -140,11 +140,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 784c2db3699069e498f8b08030229258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Crab_Settings
-  isShooting: 0
   Max_Health: 20
   box_collider: {fileID: 2450868773975961665}
   rigibody: {fileID: 2495149784361613321}
   animator: {fileID: 73576721536684538}
+  waveSystem: {fileID: 0}
+  Exp: 10
+  isShooting: 0
+  die: 0
 --- !u!50 &2495149784361613321
 Rigidbody2D:
   serializedVersion: 5

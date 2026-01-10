@@ -3,7 +3,13 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 5f;
+    [Header("Movement Settings")]
+    [SerializeField] private float maxSpeed = 7f;
+    [SerializeField] private float acceleration = 50f;
+    [SerializeField] private float friction = 40f;
+
+    private Vector2 currentVelocity;
+
 
     private void Update()
     {
@@ -15,9 +21,21 @@ public class PlayerController : MonoBehaviour
 
         moveInput.Normalize();
 
-        Vector3 newPos = transform.position + (Vector3)(moveInput * moveSpeed * Time.deltaTime);
+        Vector2 desiredVelocity = moveInput * maxSpeed;
+
+        if (moveInput.magnitude > 0)
+        {
+            currentVelocity = Vector2.MoveTowards(currentVelocity, desiredVelocity, acceleration * Time.deltaTime);
+        }
+        else
+        {
+            currentVelocity = Vector2.MoveTowards(currentVelocity, Vector2.zero, friction * Time.deltaTime);
+        }
+
+        Vector3 newPos = transform.position + (Vector3)(currentVelocity * Time.deltaTime);
         newPos.x = Mathf.Clamp(newPos.x, -5.29f, 5.28f);
         newPos.y = Mathf.Clamp(newPos.y, -4.02f, -1.98f + 0.4f);
+
         transform.position = newPos;
     }
 }

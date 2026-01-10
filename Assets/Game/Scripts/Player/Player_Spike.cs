@@ -74,7 +74,7 @@ public class PlayerSpike : MonoBehaviour
         startPos = transform.position;
         targetPos = startPos + moveOffset;
 
-        if(playerController != null) playerController.enabled = false;
+        if (playerController != null) playerController.enabled = false;
     }
 
     private void EndAction()

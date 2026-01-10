@@ -1,37 +1,112 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class BallController : MonoBehaviour
 {
-    [SerializeField] private float speed = 10f;
+    [SerializeField] private float moveSpeed = 10f;
+
+    [SerializeField] private float jumpScaleMultiplier = 1.5f;
+
+    [SerializeField] private Vector2 minBounds = new Vector2(-5.29f, -4.02f);
+    [SerializeField] private Vector2 maxBounds = new Vector2(5.28f, -1.58f);
+
     private Rigidbody2D rb;
     private Camera mainCamera;
+
+    private Vector3 originalScale;
+    private bool isMoving = false;
+    private bool isReturning = false;
+    private float movementDuration;
+    private float currentTimer;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         mainCamera = Camera.main;
+        originalScale = transform.localScale;
+    }
+
+    private void Update()
+    {
+        if (isMoving)
+        {
+            currentTimer += Time.deltaTime;
+
+            float progress = currentTimer / movementDuration;
+
+            if (progress >= 1f)
+            {
+                rb.linearVelocity = Vector2.zero;
+                transform.localScale = originalScale;
+                isMoving = false;
+
+                if (!isReturning)
+                {
+                    ReturnToRandomPlayerPosition();
+                }
+                else
+                {
+                    StopMovement();
+                }
+            }
+            else
+            {
+                float arcHeight = Mathf.Sin(progress * Mathf.PI);
+                Vector3 newScale = originalScale + (originalScale * jumpScaleMultiplier * arcHeight);
+                transform.localScale = newScale;
+            }
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            LaunchTowardsMouse();
+            if (Mouse.current == null) return;
+
+            Vector2 mouseScreenPos = Mouse.current.position.ReadValue();
+            Vector3 mouseWorldPos = mainCamera.ScreenToWorldPoint(mouseScreenPos);
+            mouseWorldPos.z = 0f;
+
+            MoveToPosition(mouseWorldPos, false);
         }
     }
 
-    public void LaunchTowardsMouse()
+    private void ReturnToRandomPlayerPosition()
     {
-        if (Mouse.current == null) return;
+        float randomX = Random.Range(minBounds.x, maxBounds.x);
+        float randomY = Random.Range(minBounds.y, maxBounds.y);
+        Vector2 targetPos = new Vector2(randomX, randomY);
 
-        Vector2 mouseScreenPos = Mouse.current.position.ReadValue();
-        
-        Vector3 mousePosition = mainCamera.ScreenToWorldPoint(mouseScreenPos);
-        mousePosition.z = 0f;
-
-        Vector2 direction = (mousePosition - transform.position).normalized;
-        
-        rb.linearVelocity = direction * speed; 
+        MoveToPosition(targetPos, true);
     }
 
+    private void MoveToPosition(Vector2 targetPos, bool returningState)
+    {
+        Vector2 startPos = transform.position;
+        Vector2 direction = (targetPos - startPos).normalized;
+        float distance = Vector2.Distance(startPos, targetPos);
+
+        if (distance < 0.1f)
+        {
+            if (!returningState) ReturnToRandomPlayerPosition();
+            else StopMovement();
+            return;
+        }
+
+        movementDuration = distance / moveSpeed;
+        currentTimer = 0f;
+        isMoving = true;
+        isReturning = returningState;
+
+        rb.linearVelocity = direction * moveSpeed;
+    }
+
+    private void StopMovement()
+    {
+        isMoving = false;
+        isReturning = false;
+        rb.linearVelocity = Vector2.zero;
+        transform.localScale = originalScale;
+    }
 }

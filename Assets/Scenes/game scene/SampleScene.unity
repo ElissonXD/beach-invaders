@@ -5185,7 +5185,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4986625021636803822, guid: a42f1a7dad69d8bfba8d7328c8498d34, type: 3}
       propertyPath: actionDuration
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4986625021636803822, guid: a42f1a7dad69d8bfba8d7328c8498d34, type: 3}
       propertyPath: growthMultiplier

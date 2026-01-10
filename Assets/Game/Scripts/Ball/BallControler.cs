@@ -13,11 +13,12 @@ public class BallController : MonoBehaviour
     private Rigidbody2D rb;
     private Camera mainCamera;
 
-    private Vector3 originalScale;
-    private bool isMoving = false;
-    private bool isReturning = false;
-    private float movementDuration;
-    private float currentTimer;
+    public Vector3 originalScale;
+    public bool isMoving = false;
+    public bool isReturning = false;
+    public float movementDuration;
+    public float currentTimer;
+    public Vector2 targetPos;
 
     private void Awake()
     {
@@ -72,11 +73,11 @@ public class BallController : MonoBehaviour
         }
     }
 
-    private void ReturnToRandomPlayerPosition()
+    public void ReturnToRandomPlayerPosition()
     {
-        float randomX = Random.Range(minBounds.x, maxBounds.x);
-        float randomY = Random.Range(minBounds.y, maxBounds.y);
-        Vector2 targetPos = new Vector2(randomX, randomY);
+        float targetPosX = Random.Range(minBounds.x, maxBounds.x);
+        float targetPosY = Random.Range(minBounds.y, maxBounds.y);
+        targetPos = new Vector2(targetPosX, targetPosY);
 
         MoveToPosition(targetPos, true);
     }

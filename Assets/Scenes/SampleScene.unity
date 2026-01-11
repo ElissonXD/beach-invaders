@@ -536,7 +536,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 989bde4e3320bd64cb5274e87c2e9048, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -2550,6 +2550,14 @@ PrefabInstance:
       propertyPath: ballController
       value: 
       objectReference: {fileID: 2130101276}
+    - target: {fileID: 8154639370463680082, guid: a42f1a7dad69d8bfba8d7328c8498d34, type: 3}
+      propertyPath: currentLevel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8154639370463680082, guid: a42f1a7dad69d8bfba8d7328c8498d34, type: 3}
+      propertyPath: maxExperience
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2557,6 +2565,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1120379046703468187, guid: a42f1a7dad69d8bfba8d7328c8498d34, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1022933531}
+    - targetCorrespondingSourceObject: {fileID: 1120379046703468187, guid: a42f1a7dad69d8bfba8d7328c8498d34, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1022933532}
   m_SourcePrefab: {fileID: 100100000, guid: a42f1a7dad69d8bfba8d7328c8498d34, type: 3}
 --- !u!1 &1022933527 stripped
 GameObject:
@@ -2609,6 +2620,18 @@ MonoBehaviour:
   playerCollider: {fileID: 1022933530}
   moveSpeed: 2
   animationOnGoing: 0
+--- !u!114 &1022933532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1022933527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 562a9fcab27a1b94aa85db0bb649f7ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player_Experience
 --- !u!1 &1026632687
 GameObject:
   m_ObjectHideFlags: 0
@@ -5134,7 +5157,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1638657817}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.08974, y: -1.18618, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

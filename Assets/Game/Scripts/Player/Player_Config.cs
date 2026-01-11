@@ -6,6 +6,7 @@ public class Player_Config : MonoBehaviour
     public float playerSpeed = 5.0f;
     public float playerRange = 10.0f;
     public float playerDefense = 1.0f;
+    public UpgradeMenu upgradeMenu;
 
     public BoxCollider2D collider2d;
     int currentExperience, maxExperience, currentLevel;
@@ -27,7 +28,7 @@ public class Player_Config : MonoBehaviour
     private void LevelUp()
     {
         currentLevel++;
-        UpgradeMenu.LevelUpMenu();
+        upgradeMenu.LevelUpMenu();
         currentExperience = 0;
         maxExperience = Mathf.RoundToInt(maxExperience * 0.5f);
     }

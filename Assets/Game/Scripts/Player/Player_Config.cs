@@ -10,17 +10,23 @@ public class Player_Config : MonoBehaviour
     public BoxCollider2D collider2d;
     [SerializeField] int currentExperience, maxExperience, currentLevel;
 
+    void Start()
+    {
+        if (Player_Experience.Instance != null)
+        {
+            Player_Experience.Instance.OnExperienceChange += HandleExperienceChange;
+        }
+    }
     void Update()
     {
         
     }
-    private void OnEnable()
-    {
-        Player_Experience.Instance.OnExperienceChange += HandleExperienceChange;
-    }
     private void OnDisable()
     {
-        Player_Experience.Instance.OnExperienceChange -= HandleExperienceChange;
+        if (Player_Experience.Instance != null)
+        {
+            Player_Experience.Instance.OnExperienceChange -= HandleExperienceChange;
+        }
     }
     private void HandleExperienceChange(int newExperience)
     {

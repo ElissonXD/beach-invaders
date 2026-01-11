@@ -7,6 +7,7 @@ public class Player_Config : MonoBehaviour
     public float playerSpeed = 5.0f;
     public float playerRange = 10.0f;
     public float playerDefense = 1.0f;
+    public UpgradeMenu upgradeMenu;
 
     public BoxCollider2D collider2d;
     int currentExperience, maxExperience, currentLevel;

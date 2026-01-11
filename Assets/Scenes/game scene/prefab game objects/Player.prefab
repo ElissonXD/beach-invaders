@@ -8,13 +8,17 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< HEAD
 <<<<<<< HEAD:Assets/Scenes/game scene/prefab game objects/Player.prefab
+=======
+>>>>>>> addf730b7b578bccca1a0bb1167c1662467d22d2
   - component: {fileID: 5859995666789681374}
   - component: {fileID: 334776038273868497}
   - component: {fileID: 4480189052490870295}
   - component: {fileID: 7398471954042320869}
   - component: {fileID: 4986625021636803822}
   - component: {fileID: 8154639370463680082}
+<<<<<<< HEAD
 =======
   - component: {fileID: 5659336947230913913}
   - component: {fileID: 2449364258513099938}
@@ -23,6 +27,8 @@ GameObject:
   - component: {fileID: 1471820820146207208}
   - component: {fileID: 1887999880609634733}
 >>>>>>> origin/eli-branch:Assets/Game/Prefabs/Enemies/Bubble.prefab
+=======
+>>>>>>> addf730b7b578bccca1a0bb1167c1662467d22d2
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -39,6 +45,7 @@ Transform:
   m_GameObject: {fileID: 1120379046703468187}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+<<<<<<< HEAD
 <<<<<<< HEAD:Assets/Scenes/game scene/prefab game objects/Player.prefab
   m_LocalPosition: {x: 0.01, y: -3.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -46,10 +53,15 @@ Transform:
   m_LocalPosition: {x: 100.4, y: -14.76, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
 >>>>>>> origin/eli-branch:Assets/Game/Prefabs/Enemies/Bubble.prefab
+=======
+  m_LocalPosition: {x: 0.01, y: -3.01, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+>>>>>>> addf730b7b578bccca1a0bb1167c1662467d22d2
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 <<<<<<< HEAD:Assets/Scenes/game scene/prefab game objects/Player.prefab
 --- !u!212 &334776038273868497
 =======
@@ -70,6 +82,9 @@ MonoBehaviour:
   direction: {x: 0, y: 0}
 --- !u!212 &4946442076073358796
 >>>>>>> origin/eli-branch:Assets/Game/Prefabs/Enemies/Bubble.prefab
+=======
+--- !u!212 &334776038273868497
+>>>>>>> addf730b7b578bccca1a0bb1167c1662467d22d2
 SpriteRenderer:
   serializedVersion: 2
   m_ObjectHideFlags: 0
@@ -118,11 +133,15 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
+<<<<<<< HEAD
 <<<<<<< HEAD:Assets/Scenes/game scene/prefab game objects/Player.prefab
   m_Sprite: {fileID: -8492812911130961109, guid: 477211b4665c23843ae94ced9ca714aa, type: 3}
 =======
   m_Sprite: {fileID: -8411930236593445216, guid: 3d5571e980dbc9241aa27e635fa97550, type: 3}
 >>>>>>> origin/eli-branch:Assets/Game/Prefabs/Enemies/Bubble.prefab
+=======
+  m_Sprite: {fileID: -8492812911130961109, guid: 477211b4665c23843ae94ced9ca714aa, type: 3}
+>>>>>>> addf730b7b578bccca1a0bb1167c1662467d22d2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -166,7 +185,10 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
+<<<<<<< HEAD
 <<<<<<< HEAD:Assets/Scenes/game scene/prefab game objects/Player.prefab
+=======
+>>>>>>> addf730b7b578bccca1a0bb1167c1662467d22d2
   m_Offset: {x: -0.0010857582, y: -0.014528275}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,6 +203,7 @@ BoxCollider2D:
   m_EdgeRadius: 0
 --- !u!114 &7398471954042320869
 MonoBehaviour:
+<<<<<<< HEAD
 =======
   m_Offset: {x: -0.0011646947, y: 0}
   m_Radius: 0.060515422
@@ -202,6 +225,8 @@ Rigidbody2D:
   moveSpeed: 5
 --- !u!114 &4986625021636803822
 MonoBehaviour:
+=======
+>>>>>>> addf730b7b578bccca1a0bb1167c1662467d22d2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -209,6 +234,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1120379046703468187}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
   m_Script: {fileID: 11500000, guid: 9bb18f11a6bddc24790c849dc3fe5232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerJump
@@ -242,6 +268,14 @@ MonoBehaviour:
 Animator:
   serializedVersion: 7
 >>>>>>> origin/eli-branch:Assets/Game/Prefabs/Enemies/Bubble.prefab
+=======
+  m_Script: {fileID: 11500000, guid: 79dcbb9c0c0801441ab91b444850338b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player_Movement
+  moveSpeed: 5
+--- !u!114 &4986625021636803822
+MonoBehaviour:
+>>>>>>> addf730b7b578bccca1a0bb1167c1662467d22d2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -252,11 +286,30 @@ Animator:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2513f609bfa6fb74caf98696c6bf2013, type: 3}
   m_Name: 
+<<<<<<< HEAD
+=======
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerJump
+  jumpDistance: 3
+  jumpDuration: 1
+  playerController: {fileID: 0}
+--- !u!114 &8154639370463680082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120379046703468187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2513f609bfa6fb74caf98696c6bf2013, type: 3}
+  m_Name: 
+>>>>>>> addf730b7b578bccca1a0bb1167c1662467d22d2
   m_EditorClassIdentifier: Assembly-CSharp::Player_Config
   playerHealth: 100
   playerSpeed: 5
   playerRange: 10
   playerDefense: 1
+<<<<<<< HEAD
 =======
   m_GameObject: {fileID: 7974611314471922454}
   m_Enabled: 1
@@ -274,3 +327,5 @@ Animator:
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
 >>>>>>> origin/eli-branch:Assets/Game/Prefabs/Enemies/Bubble.prefab
+=======
+>>>>>>> addf730b7b578bccca1a0bb1167c1662467d22d2

@@ -37,6 +37,7 @@ public class PlayerSpike : MonoBehaviour
 
     private void Update()
     {
+        if (Time.timeScale == 0) return;
         if (Mouse.current.leftButton.wasPressedThisFrame && !isJumping && (ballController.isMoving || ballController.isReturning || !ball.activeSelf))
         {
             StartAction();

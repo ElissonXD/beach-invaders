@@ -6,16 +6,22 @@ public class Player_Config : MonoBehaviour
     public float playerSpeed = 5.0f;
     public float playerRange = 10.0f;
     public float playerDefense = 1.0f;
-    public UpgradeMenu upgrademenu;
 
     public BoxCollider2D collider2d;
-    int currentExperience, maxExperience, currentLevel;
+    [SerializeField] int currentExperience, maxExperience, currentLevel;
 
     void Update()
     {
         
     }
-
+    private void OnEnable()
+    {
+        Player_Experience.Instance.OnExperienceChange += HandleExperienceChange;
+    }
+    private void OnDisable()
+    {
+        Player_Experience.Instance.OnExperienceChange -= HandleExperienceChange;
+    }
     private void HandleExperienceChange(int newExperience)
     {
         currentExperience += newExperience;
@@ -28,9 +34,9 @@ public class Player_Config : MonoBehaviour
     private void LevelUp()
     {
         currentLevel++;
-        upgrademenu.LevelUpMenu();
+        UpgradeMenu.Instance.LevelUpMenu();
         currentExperience = 0;
-        maxExperience = Mathf.RoundToInt(maxExperience * 0.5f);
+        maxExperience = Mathf.RoundToInt(maxExperience * 1.5f);
     }
 
     void OnTriggerEnter2D(Collider2D other)

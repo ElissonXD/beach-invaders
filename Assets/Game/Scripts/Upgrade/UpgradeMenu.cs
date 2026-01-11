@@ -7,6 +7,7 @@ public class UpgradeMenu : MonoBehaviour
 {
     public Player_Upgrades playerUpgrades;
     public Animator animator;
+     public static UpgradeMenu Instance;
 
     // Buttons
     public Button option1;
@@ -32,6 +33,17 @@ public class UpgradeMenu : MonoBehaviour
     public Image currentSprite3;
 
     private bool button_pressed;
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        { 
+        Instance = this;
+        }
+    }
 
     // Update is called once per frame
     void Update()
@@ -50,6 +62,7 @@ public class UpgradeMenu : MonoBehaviour
         UpgradeAbstract[] upgrades = playerUpgrades.Choose_Options();
         SetOptions(upgrades);
         animator.SetTrigger("MoveIn");
+        Time.timeScale = 0f;
     }
     void SetOptions(UpgradeAbstract[] options)
     {
@@ -92,6 +105,7 @@ public class UpgradeMenu : MonoBehaviour
         option1.onClick.RemoveAllListeners();
         option2.onClick.RemoveAllListeners();
         option3.onClick.RemoveAllListeners();
+        Time.timeScale = 1f;
     }
 
 }

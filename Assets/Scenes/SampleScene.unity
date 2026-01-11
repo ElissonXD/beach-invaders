@@ -1387,7 +1387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7145f6ac9df888c488ff628783218fa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeStats
-  sprite: {fileID: 21300000, guid: d961dd6a960336147af6dc7cc321fb64, type: 3}
+  sprite: {fileID: -6026222105592965643, guid: 7b54dff90408c6d44af69704405efcd8, type: 3}
   player_Config: {fileID: 0}
   upgradeName: Armor
   description: +10% Armor
@@ -5091,7 +5091,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7145f6ac9df888c488ff628783218fa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeStats
-  sprite: {fileID: 21300000, guid: d961dd6a960336147af6dc7cc321fb64, type: 3}
+  sprite: {fileID: -6026222105592965643, guid: 7b54dff90408c6d44af69704405efcd8, type: 3}
   player_Config: {fileID: 0}
   upgradeName: Range
   description: +1 Range
@@ -5972,7 +5972,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7145f6ac9df888c488ff628783218fa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeStats
-  sprite: {fileID: 21300000, guid: d961dd6a960336147af6dc7cc321fb64, type: 3}
+  sprite: {fileID: -690241115303966029, guid: b1eba96cfa9af2049a80b45bb3866626, type: 3}
   player_Config: {fileID: 0}
   upgradeName: Health
   description: +20 Health

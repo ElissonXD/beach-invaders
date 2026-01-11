@@ -5,7 +5,7 @@ public class Crab_Settings : EnemyAbstract
     public bool isShooting = false;
     private float current_Health = 20f;
     public bool die = false; //placeholder
-    int expAmount = 25;
+    public int expAmount = 25;
     void Start()
     {
         animator.SetBool("IsMoving", true);

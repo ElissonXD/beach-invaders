@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Crab_Movement
   crab_settings: {fileID: 458609380383240650}
-  speed: 2
+  speed: 1
 --- !u!114 &458609380383240650
 MonoBehaviour:
   m_ObjectHideFlags: 0

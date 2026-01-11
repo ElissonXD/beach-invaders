@@ -8,12 +8,21 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< HEAD:Assets/Scenes/game scene/prefab game objects/Player.prefab
   - component: {fileID: 5859995666789681374}
   - component: {fileID: 334776038273868497}
   - component: {fileID: 4480189052490870295}
   - component: {fileID: 7398471954042320869}
   - component: {fileID: 4986625021636803822}
   - component: {fileID: 8154639370463680082}
+=======
+  - component: {fileID: 5659336947230913913}
+  - component: {fileID: 2449364258513099938}
+  - component: {fileID: 4946442076073358796}
+  - component: {fileID: 1209355809267491588}
+  - component: {fileID: 1471820820146207208}
+  - component: {fileID: 1887999880609634733}
+>>>>>>> origin/eli-branch:Assets/Game/Prefabs/Enemies/Bubble.prefab
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -30,13 +39,37 @@ Transform:
   m_GameObject: {fileID: 1120379046703468187}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+<<<<<<< HEAD:Assets/Scenes/game scene/prefab game objects/Player.prefab
   m_LocalPosition: {x: 0.01, y: -3.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+=======
+  m_LocalPosition: {x: 100.4, y: -14.76, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 1}
+>>>>>>> origin/eli-branch:Assets/Game/Prefabs/Enemies/Bubble.prefab
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD:Assets/Scenes/game scene/prefab game objects/Player.prefab
 --- !u!212 &334776038273868497
+=======
+--- !u!114 &2449364258513099938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7974611314471922454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39366b4e84109134dae3a616d011fb3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Bubble
+  speed: 4
+  rigidbody: {fileID: 1471820820146207208}
+  direction: {x: 0, y: 0}
+--- !u!212 &4946442076073358796
+>>>>>>> origin/eli-branch:Assets/Game/Prefabs/Enemies/Bubble.prefab
 SpriteRenderer:
   serializedVersion: 2
   m_ObjectHideFlags: 0
@@ -85,7 +118,11 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
+<<<<<<< HEAD:Assets/Scenes/game scene/prefab game objects/Player.prefab
   m_Sprite: {fileID: -8492812911130961109, guid: 477211b4665c23843ae94ced9ca714aa, type: 3}
+=======
+  m_Sprite: {fileID: -8411930236593445216, guid: 3d5571e980dbc9241aa27e635fa97550, type: 3}
+>>>>>>> origin/eli-branch:Assets/Game/Prefabs/Enemies/Bubble.prefab
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -129,6 +166,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
+<<<<<<< HEAD:Assets/Scenes/game scene/prefab game objects/Player.prefab
   m_Offset: {x: -0.0010857582, y: -0.014528275}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,10 +181,18 @@ BoxCollider2D:
   m_EdgeRadius: 0
 --- !u!114 &7398471954042320869
 MonoBehaviour:
+=======
+  m_Offset: {x: -0.0011646947, y: 0}
+  m_Radius: 0.060515422
+--- !u!50 &1471820820146207208
+Rigidbody2D:
+  serializedVersion: 5
+>>>>>>> origin/eli-branch:Assets/Game/Prefabs/Enemies/Bubble.prefab
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:Assets/Scenes/game scene/prefab game objects/Player.prefab
   m_GameObject: {fileID: 1120379046703468187}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -171,10 +217,36 @@ MonoBehaviour:
   playerController: {fileID: 0}
 --- !u!114 &8154639370463680082
 MonoBehaviour:
+=======
+  m_GameObject: {fileID: 7974611314471922454}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!95 &1887999880609634733
+Animator:
+  serializedVersion: 7
+>>>>>>> origin/eli-branch:Assets/Game/Prefabs/Enemies/Bubble.prefab
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:Assets/Scenes/game scene/prefab game objects/Player.prefab
   m_GameObject: {fileID: 1120379046703468187}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -185,3 +257,20 @@ MonoBehaviour:
   playerSpeed: 5
   playerRange: 10
   playerDefense: 1
+=======
+  m_GameObject: {fileID: 7974611314471922454}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 07b0a4e933544ae44bbb46f509efba99, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+>>>>>>> origin/eli-branch:Assets/Game/Prefabs/Enemies/Bubble.prefab

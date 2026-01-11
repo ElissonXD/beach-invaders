@@ -57,7 +57,7 @@ public class WaveSystem : MonoBehaviour
         if (enemies_killed <= 0) {
                 wave_counter += 1;
                 current_wave = Mathf.Min(current_wave+1, waves.Length);
-                Start_Wave(current_wave);
+                current_enemies = Start_Wave(current_wave);
 
         }
     }

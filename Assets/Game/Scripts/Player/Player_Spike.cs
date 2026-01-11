@@ -3,92 +3,66 @@ using UnityEngine.InputSystem;
 
 public class PlayerSpike : MonoBehaviour
 {
-    [Header("Settings - Tamanho")]
-    [SerializeField] private float growthMultiplier = 2.5f;
-    [SerializeField] private float actionDuration = 1f;
-
-    [Header("Settings - Movimento")]
-    [SerializeField] private Vector3 moveOffset = new Vector3(0f, 1f, 0f);
-    
-    [Header("References")]
+    [SerializeField] private float jumpDistance = 3f;
+    [SerializeField] private float jumpDuration = 1f;
     [SerializeField] private PlayerController playerController;
-    [SerializeField] private Player_Serve playerServe;
-    [Header("Ball")]
-    [SerializeField] private GameObject ball;
-    [SerializeField] private BallController ballController;
 
     private SpriteRenderer spriteRenderer;
-    public bool isJumping;
-    
-    private Vector3 originalScale;
-    private Vector3 targetScale;
-    
+    private bool isJumping;
+    private bool isFalling;
     private Vector3 startPos;
-    private Vector3 targetPos;
-
-    private float progress;
+    private Vector3 jumpPeak;
+    private float jumpProgress;
 
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         playerController ??= GetComponent<PlayerController>();
-        playerServe ??= GetComponent<Player_Serve>();
     }
 
     private void Update()
     {
-        if (Mouse.current.leftButton.wasPressedThisFrame && !isJumping && (ballController.isMoving || ballController.isReturning || !ball.activeSelf))
+        if (Mouse.current.leftButton.wasPressedThisFrame && !isJumping)
         {
-            StartAction();
+            isJumping = true;
+            startPos = transform.position;
+            jumpPeak = startPos + Vector3.up * jumpDistance;
+            jumpProgress = 0f;
+            playerController.enabled = false;
         }
 
         if (isJumping)
         {
-            progress += Time.deltaTime / actionDuration;
-
-            if (progress < 0.5f)
+            jumpProgress += Time.deltaTime / jumpDuration;
+            if (jumpProgress < 0.5f)
             {
-                float t = progress / 0.5f;
-                
-                transform.position = Vector3.Lerp(startPos, targetPos, t);
-                transform.localScale = Vector3.Lerp(originalScale, targetScale, t);
+                float riseT = jumpProgress / 0.5f;
+                transform.position = Vector3.Lerp(startPos, jumpPeak, riseT);
             }
             else
             {
-                float t = (progress - 0.5f) / 0.5f;
+                float fallT = (jumpProgress - 0.5f) / 0.5f;
+                transform.position = Vector3.Lerp(jumpPeak, startPos, fallT);
                 
-                transform.position = Vector3.Lerp(targetPos, startPos, t);
-                transform.localScale = Vector3.Lerp(targetScale, originalScale, t);
-                
-                if (progress >= 1f)
+                if (jumpProgress >= 1f)
                 {
-                    EndAction();
+                    isJumping = false;
+                    playerController.enabled = true;
+                    transform.position = startPos;
                 }
             }
         }
     }
 
-    private void StartAction()
+    private void StartFall()
     {
-        isJumping = true;
-        progress = 0f;
-        
-        originalScale = transform.localScale;
-        targetScale = originalScale * growthMultiplier;
-
-        startPos = transform.position;
-        targetPos = startPos + moveOffset;
-
-        if (playerController != null) playerController.enabled = false;
+        isFalling = true;
     }
 
-    private void EndAction()
+    private void EndJump()
     {
         isJumping = false;
-        
-        transform.localScale = originalScale;
+        playerController.enabled = true;
         transform.position = startPos;
-        
-        if(playerController != null) playerController.enabled = true;
     }
 }

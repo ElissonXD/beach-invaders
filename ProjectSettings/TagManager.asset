@@ -3,15 +3,17 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Net
+  - Bubble
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Entities
+  - 
   - Water
   - UI
-  - Ball
+  - 
   - 
   - 
   - 

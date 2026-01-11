@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Player_Config : MonoBehaviour
 {
+    [SerializeField] private UpgradeMenu upgradeMenu;
     public int playerHealth = 100;
     public float playerSpeed = 5.0f;
     public float playerRange = 10.0f;
@@ -27,7 +28,7 @@ public class Player_Config : MonoBehaviour
     private void LevelUp()
     {
         currentLevel++;
-        UpgradeMenu.LevelUpMenu();
+        upgradeMenu.LevelUpMenu();
         currentExperience = 0;
         maxExperience = Mathf.RoundToInt(maxExperience * 0.5f);
     }

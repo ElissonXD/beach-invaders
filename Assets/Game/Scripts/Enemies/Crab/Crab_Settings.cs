@@ -23,7 +23,10 @@ public class Crab_Settings : EnemyAbstract
 
     public void OnTriggerEnter2D(UnityEngine.Collider2D collision)
     {
+            if (collision.gameObject.CompareTag("Net"))
+        {
             isShooting = true;
+        }
 
     }
 

@@ -67,5 +67,5 @@
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "volei-main.slnx"
+    "dotnet.defaultSolution": "volei.slnx"
 }

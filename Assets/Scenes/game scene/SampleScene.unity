@@ -437,6 +437,19 @@ MonoBehaviour:
   ballCollider: {fileID: 1228700967}
   playerSpike: {fileID: 76167344}
   playerCollider: {fileID: 76167346}
+  moveSpeed: 2
+  animationOnGoing: 0
+--- !u!114 &76167351 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7398471954042320869, guid: a42f1a7dad69d8bfba8d7328c8498d34, type: 3}
+  m_PrefabInstance: {fileID: 7599135995953668463}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76167333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79dcbb9c0c0801441ab91b444850338b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player_Movement
 --- !u!1 &189134403
 GameObject:
   m_ObjectHideFlags: 0
@@ -5338,6 +5351,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4986625021636803822, guid: a42f1a7dad69d8bfba8d7328c8498d34, type: 3}
+      propertyPath: ball
+      value: 
+      objectReference: {fileID: 1228700965}
+    - target: {fileID: 4986625021636803822, guid: a42f1a7dad69d8bfba8d7328c8498d34, type: 3}
+      propertyPath: playerServe
+      value: 
+      objectReference: {fileID: 76167349}
+    - target: {fileID: 4986625021636803822, guid: a42f1a7dad69d8bfba8d7328c8498d34, type: 3}
       propertyPath: moveOffset.y
       value: 0.5
       objectReference: {fileID: 0}
@@ -5346,9 +5367,17 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4986625021636803822, guid: a42f1a7dad69d8bfba8d7328c8498d34, type: 3}
+      propertyPath: ballController
+      value: 
+      objectReference: {fileID: 1228700970}
+    - target: {fileID: 4986625021636803822, guid: a42f1a7dad69d8bfba8d7328c8498d34, type: 3}
       propertyPath: growthMultiplier
       value: 1.25
       objectReference: {fileID: 0}
+    - target: {fileID: 4986625021636803822, guid: a42f1a7dad69d8bfba8d7328c8498d34, type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 76167351}
     - target: {fileID: 5859995666789681374, guid: a42f1a7dad69d8bfba8d7328c8498d34, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.75
@@ -5406,13 +5435,25 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7398471954042320869, guid: a42f1a7dad69d8bfba8d7328c8498d34, type: 3}
+      propertyPath: ball
+      value: 
+      objectReference: {fileID: 1228700965}
+    - target: {fileID: 7398471954042320869, guid: a42f1a7dad69d8bfba8d7328c8498d34, type: 3}
       propertyPath: friction
-      value: 75
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 7398471954042320869, guid: a42f1a7dad69d8bfba8d7328c8498d34, type: 3}
       propertyPath: maxSpeed
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 7398471954042320869, guid: a42f1a7dad69d8bfba8d7328c8498d34, type: 3}
+      propertyPath: playerServe
+      value: 
+      objectReference: {fileID: 76167349}
+    - target: {fileID: 7398471954042320869, guid: a42f1a7dad69d8bfba8d7328c8498d34, type: 3}
+      propertyPath: ballController
+      value: 
+      objectReference: {fileID: 1228700970}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

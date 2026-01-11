@@ -12,6 +12,10 @@ public class PlayerSpike : MonoBehaviour
     
     [Header("References")]
     [SerializeField] private PlayerController playerController;
+    [SerializeField] private Player_Serve playerServe;
+    [Header("Ball")]
+    [SerializeField] private GameObject ball;
+    [SerializeField] private BallController ballController;
 
     private SpriteRenderer spriteRenderer;
     public bool isJumping;
@@ -28,11 +32,12 @@ public class PlayerSpike : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         playerController ??= GetComponent<PlayerController>();
+        playerServe ??= GetComponent<Player_Serve>();
     }
 
     private void Update()
     {
-        if (Mouse.current.leftButton.wasPressedThisFrame && !isJumping)
+        if (Mouse.current.leftButton.wasPressedThisFrame && !isJumping && (ballController.isMoving || ballController.isReturning || !ball.activeSelf))
         {
             StartAction();
         }

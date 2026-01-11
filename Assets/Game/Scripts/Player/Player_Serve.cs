@@ -16,16 +16,21 @@ public class Player_Serve : MonoBehaviour
     [SerializeField] private float moveSpeed = 2f;
 
     private bool ballPrepared;
-    private bool firstIteration;
+    public bool animationOnGoing;
+    private bool waited;
+    private bool hasExecuted;
 
     private float timer;
+    private const float delay = 0.1f; 
 
     private Vector3 initialPosition;
 
     void Start()
     {
         ballPrepared = false;
-        firstIteration = true;
+        waited = false;
+        hasExecuted = false;
+        animationOnGoing = false;
         
         timer = 0;
         
@@ -33,16 +38,26 @@ public class Player_Serve : MonoBehaviour
         playerSpike = GetComponent<PlayerSpike>();
     }
 
+    private void wait()
+    {
+        timer += Time.deltaTime;
+        waited = (timer >= delay) ? true : false;
+        if (waited) timer = 0;
+
+    }
+
     private void serve()
     {
         if (!ballController.isMoving && !ballController.isReturning)
         {
-            if (!ballPrepared)
+            if (!waited) wait();
+
+            else if (!ballPrepared)
             {
                 
-                if (firstIteration)
+                if (!hasExecuted)
                 {
-                    firstIteration = false;
+                    hasExecuted = true;
                     initialPosition = transform.position;
 
                 }
@@ -53,14 +68,20 @@ public class Player_Serve : MonoBehaviour
 
             else if (playerSpike.isJumping)
             {
-                ball.SetActive(true);
+                waited = false;
                 ball.transform.position = transform.position;
+                ball.SetActive(true);
                 timer = 0;
                 ballPrepared = false;
-                firstIteration = true;
 
             }
 
+        }
+
+        else
+        {
+            hasExecuted = false;
+            
         }
 
     }
@@ -69,8 +90,9 @@ public class Player_Serve : MonoBehaviour
 
     private void servePreparation()
     {
-        if (!playerCollider.IsTouching(ballCollider))
+        if (!playerCollider.IsTouching(ballCollider) && !ballController.isMoving && !ballController.isReturning )
         {
+            animationOnGoing = true;
             timer += Time.deltaTime * moveSpeed;
             timer = Mathf.Clamp(timer, 0, Mathf.PI);
             float t = evaluate(timer);
@@ -80,6 +102,7 @@ public class Player_Serve : MonoBehaviour
 
         else
         {
+            animationOnGoing = false;
             ball.SetActive(false);
             ballPrepared = true;
             timer = 0;

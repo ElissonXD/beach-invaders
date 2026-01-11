@@ -45,12 +45,7 @@ public class UpgradeMenu : MonoBehaviour
 
 
     }
-    public void LevelUpMenu()
-    {
-        UpgradeAbstract[] upgrades = playerUpgrades.Choose_Options();
-        SetOptions(upgrades);
-        animator.SetTrigger("MoveIn");
-    }
+
     void SetOptions(UpgradeAbstract[] options)
     {
         option1.enabled = true;

@@ -478,8 +478,10 @@ MonoBehaviour:
   - {fileID: 1627979934}
   - {fileID: 1688146727}
   waves:
-  - enemies: []
-  - enemies: []
+  - enemies:
+    - {fileID: 458609380383240650, guid: 483fd0eb6d1ab2d48ab9ede2aa6f1f4e, type: 3}
+  - enemies:
+    - {fileID: 8182421543639599368, guid: 168800fb56d7348458218c93d2d67b48, type: 3}
   current_wave: 0
   wave_text: {fileID: 821472423}
   animator: {fileID: 821472422}
@@ -1541,7 +1543,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 3
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -5204322019593910290, guid: 879fb329a1b90034b83ebcf240b969e4, type: 3}
+  m_Sprite: {fileID: -5204322019593910290, guid: 2bb1adb09858a1843857100d78710d1e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1549,7 +1551,7 @@ SpriteRenderer:
   m_Size: {x: 3.82, y: 3.62}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
 --- !u!4 &663712704
 Transform:
@@ -6154,7 +6156,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 2833734563442339208, guid: 27934cd41d455361a9440985849ca986, type: 3}
+  m_Sprite: {fileID: 2833734563442339208, guid: 36bb2f78de0fff4409813899b3e5aece, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -6162,7 +6164,7 @@ SpriteRenderer:
   m_Size: {x: 3.8, y: 3.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
 --- !u!4 &2130101279
 Transform:

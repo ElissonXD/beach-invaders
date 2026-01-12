@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [Header("Movement Settings")]
-    [SerializeField] private float maxSpeed = 7f;
+    [SerializeField] Player_Config player_Config;
     [SerializeField] private float acceleration = 50f;
     [SerializeField] private float friction = 40f;
     [Header("Ball")]
@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
 
             moveInput.Normalize();
 
-            Vector2 desiredVelocity = moveInput * maxSpeed;
+            Vector2 desiredVelocity = moveInput * player_Config.player_max_speed;
 
             if (moveInput.magnitude > 0)
             {

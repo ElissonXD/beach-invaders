@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 73576721536684538}
   m_Layer: 0
   m_Name: Crab
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -148,6 +148,7 @@ MonoBehaviour:
   Exp: 10
   isShooting: 0
   die: 0
+  expAmount: 25
 --- !u!50 &2495149784361613321
 Rigidbody2D:
   serializedVersion: 5

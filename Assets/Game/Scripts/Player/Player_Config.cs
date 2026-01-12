@@ -3,10 +3,9 @@ using UnityEngine;
 public class Player_Config : MonoBehaviour
 {
     public int playerHealth = 100;
-    public int current_Health = 100;
-    public float playerSpeed = 5.0f;
-    public float playerRange = 10.0f;
-    public float playerDefense = 1.0f;
+    public float current_Health = 100;
+    public int player_max_speed = 8;
+    public float playerDefense = 0.0f;
 
     public BoxCollider2D collider2d;
     [SerializeField] public int currentExperience, maxExperience, currentLevel;
@@ -20,7 +19,14 @@ public class Player_Config : MonoBehaviour
     }
     void Update()
     {
-        
+        if (current_Health <= 0)
+        {
+            RestartLogic restartLogic = GameObject.FindFirstObjectByType<RestartLogic>();
+            WaveSystem waveSystem = GameObject.FindFirstObjectByType<WaveSystem>();
+            restartLogic.animator.SetTrigger("MoveIn");
+            restartLogic.UpdateCounterText(waveSystem.wave_counter);
+            Destroy(gameObject);
+        }
     }
     private void OnDisable()
     {
@@ -50,7 +56,7 @@ public class Player_Config : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Bubble"))
         {
-            current_Health -= 10;
+            current_Health -= 10 * (1 - playerDefense);
             Destroy(other.gameObject);
         }
     }

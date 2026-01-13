@@ -7,6 +7,9 @@ TagManager:
   - Net
   - Bubble
   - Enemy
+  - Sand
+  - Shoot
+  - Undefined
   layers:
   - Default
   - TransparentFX

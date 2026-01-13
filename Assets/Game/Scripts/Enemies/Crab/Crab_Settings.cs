@@ -42,7 +42,7 @@ public class Crab_Settings : EnemyAbstract
     {
         if (collision.gameObject.CompareTag("Ball"))
         {
-            current_Health -= 20;
+            current_Health -= 6;
         }
     }
 }

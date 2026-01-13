@@ -9,8 +9,11 @@ public class BallController : MonoBehaviour
     [SerializeField] private float jumpScaleMultiplier = 1.5f;
 
     [Header("Boundaries")]
-    [SerializeField] private Vector2 minBounds = new Vector2(-5.29f, -4.02f);
-    [SerializeField] private Vector2 maxBounds = new Vector2(5.28f, -1.58f);
+    [SerializeField] private Vector2 minCourtBounds = new Vector2(-5.29f, -4.02f);
+    [SerializeField] private Vector2 maxCourtBounds = new Vector2(5.28f, -1.58f);
+
+    [SerializeField] private Vector2 minScreenBounds = new Vector2(-6f, -5f);
+    [SerializeField] private Vector2 maxScreenBounds = new Vector2(6f, 5f);
 
     [Header("Target Components")]
     public CircleCollider2D targetCollider;
@@ -19,6 +22,8 @@ public class BallController : MonoBehaviour
     [Header("Player Components")]
     public GameObject player;
     private PlayerSpike playerScript;
+    [Header("Ball Component")]
+    public Rigidbody2D rigidBody;
 
     private Camera mainCamera;
 
@@ -86,12 +91,20 @@ public class BallController : MonoBehaviour
 
             MoveToPosition(mouseWorldPos, false);
         }
+
+        else if (collision.gameObject.CompareTag("Enemy") && !isReturning)
+        {
+            isMoving = false;
+            isReturning = true;
+            ReturnToRandomPlayerPosition();
+
+        }
     }
 
     public void ReturnToRandomPlayerPosition()
     {
-        float targetPosX = Random.Range(minBounds.x, maxBounds.x);
-        float targetPosY = Random.Range(minBounds.y, maxBounds.y);
+        float targetPosX = Random.Range(minCourtBounds.x, maxCourtBounds.x);
+        float targetPosY = Random.Range(minCourtBounds.y, maxCourtBounds.y);
         Vector2 randomTarget = new Vector2(targetPosX, targetPosY);
 
         MoveToPosition(randomTarget, true);
@@ -99,6 +112,12 @@ public class BallController : MonoBehaviour
 
     private void MoveToPosition(Vector2 newTargetPos, bool returningState)
     {
+        newTargetPos.x = (newTargetPos.x >= maxScreenBounds.x) ? maxScreenBounds.x : newTargetPos.x;
+        newTargetPos.x = (newTargetPos.x < minScreenBounds.x) ? minScreenBounds.x : newTargetPos.x;
+
+        newTargetPos.y = (newTargetPos.y >= maxScreenBounds.y) ? maxScreenBounds.y : newTargetPos.y;
+        newTargetPos.y = (newTargetPos.y < minScreenBounds.y) ? minScreenBounds.y : newTargetPos.y;
+
         startPos = transform.position;
         targetPos = newTargetPos;
 
@@ -120,6 +139,8 @@ public class BallController : MonoBehaviour
 
     private void StopMovement()
     {
+        GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
+        GetComponent<Rigidbody2D>().angularVelocity = 0;
         isMoving = false;
         isReturning = false;
         transform.localScale = originalScale;

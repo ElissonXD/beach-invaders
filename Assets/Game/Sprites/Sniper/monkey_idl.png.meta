@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 76c5c3ae607a3db43bd6730cc09f4651
+guid: 90acd2ecdff1734418b65662996732e1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3787186718068959810
-    second: net_0
+      213: -3443432638605787639
+    second: monkey_idl_0
+  - first:
+      213: -7531821878621844862
+    second: monkey_idl_1
+  - first:
+      213: 182727923073968312
+    second: monkey_idl_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +43,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +81,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -96,30 +102,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: net_0
+      name: monkey_idl_0
       rect:
         serializedVersion: 2
-        x: 13
-        y: 26
-        width: 504
-        height: 235
+        x: 5
+        y: 8
+        width: 32
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +121,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: eb51c6bceb5317bc0800000000000000
-      internalID: -3787186718068959810
+      spriteID: 90e7aef52487630d0800000000000000
+      internalID: -3443432638605787639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monkey_idl_1
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 8
+        width: 32
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28aca3d18e7997790800000000000000
+      internalID: -7531821878621844862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monkey_idl_2
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 8
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b86e51f31e298200800000000000000
+      internalID: 182727923073968312
       vertices: []
       indices: 
       edges: []
@@ -148,7 +185,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      net_0: -3787186718068959810
+      monkey_idl_0: -3443432638605787639
+      monkey_idl_1: -7531821878621844862
+      monkey_idl_2: 182727923073968312
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

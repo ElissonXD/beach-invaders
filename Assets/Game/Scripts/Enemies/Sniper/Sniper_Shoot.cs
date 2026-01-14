@@ -36,6 +36,7 @@ public class Sniper_Shoot : MonoBehaviour
 
                 if (aim_timer > 0f)
                 {
+                    sniperConfig.animator.SetBool("IsAiming", true);
                     aim_timer -= Time.deltaTime;
                     if (aim_timer <= aim_time / 2){
                         instance.animator.SetTrigger("go");
@@ -43,6 +44,7 @@ public class Sniper_Shoot : MonoBehaviour
 
                 } else
                 {
+                    sniperConfig.animator.SetBool("IsAiming", false);
                     instance.ShootBullet();
                     shoot_timer = shoot_cooldown;
                     aim_timer = aim_time;

@@ -12,9 +12,11 @@ public class Sniper_Movement : MonoBehaviour
         if (!sniperConfig.is_aiming)
         {
             sniperConfig.rigidbody.linearVelocity = Vector2.down * move_speed;
+            sniperConfig.animator.SetBool("IsMoving", true);
         } else
         {
             sniperConfig.rigibody.linearVelocity = Vector2.zero;
+            sniperConfig.animator.SetBool("IsMoving", false);
         }
     }
 

@@ -33,4 +33,12 @@ public class Sniper_Config : EnemyAbstract
             Destroy(gameObject);
         }
     }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ball"))
+        {
+            current_health -= 6;
+        }
+    }
 }

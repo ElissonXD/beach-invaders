@@ -6,9 +6,9 @@ public class Player_Config : MonoBehaviour
     public float current_Health = 100;
     public int player_max_speed = 8;
     public float playerDefense = 0.0f;
-
     public BoxCollider2D collider2d;
     [SerializeField] public int currentExperience, maxExperience, currentLevel;
+
 
     void Start()
     {
@@ -25,7 +25,7 @@ public class Player_Config : MonoBehaviour
             WaveSystem waveSystem = GameObject.FindFirstObjectByType<WaveSystem>();
             restartLogic.animator.SetTrigger("MoveIn");
             restartLogic.UpdateCounterText(waveSystem.wave_counter);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
     private void OnDisable()
@@ -57,6 +57,11 @@ public class Player_Config : MonoBehaviour
         if (other.gameObject.CompareTag("Bubble"))
         {
             current_Health -= 10 * (1 - playerDefense);
+            Destroy(other.gameObject);
+        } else if (other.gameObject.CompareTag("Shoot"))
+        {
+            Debug.Log("oof");
+            current_Health -= 30 * (1 - playerDefense);
             Destroy(other.gameObject);
         }
     }

@@ -1122,7 +1122,7 @@ MonoBehaviour:
   - {fileID: 1688146727}
   waves:
   - enemies:
-    - {fileID: 458609380383240650, guid: 483fd0eb6d1ab2d48ab9ede2aa6f1f4e, type: 3}
+    - {fileID: 6163413706383045111, guid: 555eee6bd11bd1d4095fa31d5c29a401, type: 3}
   - enemies:
     - {fileID: 458609380383240650, guid: 483fd0eb6d1ab2d48ab9ede2aa6f1f4e, type: 3}
   - enemies:
@@ -2142,6 +2142,9 @@ MonoBehaviour:
   - name: EnemyHit
     audioClips:
     - {fileID: 8300000, guid: fb7807cffcbc9b84c8ed9039416e74d5, type: 3}
+  - name: BulletHit
+    audioClips:
+    - {fileID: 8300000, guid: c60a643127c8aac46b7849665176f5d9, type: 3}
 --- !u!114 &573397913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6007,7 +6010,7 @@ SpriteRenderer:
   m_Size: {x: 10.11, y: 4.14}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1071072684
 Transform:
@@ -8985,7 +8988,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.777
+  m_Volume: 0.028
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -9456,3 +9459,5 @@ SceneRoots:
   - {fileID: 722513562}
   - {fileID: 1871400127}
   - {fileID: 468466221}
+  - {fileID: 573397914}
+  - {fileID: 2138597686}

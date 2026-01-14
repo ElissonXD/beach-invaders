@@ -7,7 +7,6 @@ public class RestartLogic : MonoBehaviour
     public TMP_Text counter_text;
     public void RestartGame()
     {
-        MusicManager.PlayBackgroundMusic(true);
         UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
 

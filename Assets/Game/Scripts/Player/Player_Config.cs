@@ -12,8 +12,10 @@ public class Player_Config : MonoBehaviour
 
     void Start()
     {
+
         if (Player_Experience.Instance != null)
         {
+            MusicManager.PlayBackgroundMusic(true);
             Player_Experience.Instance.OnExperienceChange += HandleExperienceChange;
         }
     }
@@ -62,6 +64,7 @@ public class Player_Config : MonoBehaviour
         } else if (other.gameObject.CompareTag("Shoot"))
         {
             Debug.Log("oof");
+            SoundEffectManager.Play("BulletHit");
             current_Health -= 30 * (1 - playerDefense);
             Destroy(other.gameObject);
         }

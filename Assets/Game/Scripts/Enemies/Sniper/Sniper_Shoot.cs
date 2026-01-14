@@ -46,6 +46,7 @@ public class Sniper_Shoot : MonoBehaviour
                 {
                     sniperConfig.animator.SetBool("IsAiming", false);
                     instance.ShootBullet();
+                    SoundEffectManager.Play("Bullet");
                     shoot_timer = shoot_cooldown;
                     aim_timer = aim_time;
                     instatiated = false;

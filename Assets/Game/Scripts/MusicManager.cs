@@ -12,7 +12,7 @@ public class MusicManager : MonoBehaviour
         {
             Instance = this;
             Instance.audioSource = GetComponent<AudioSource>();
-            Instance.audioSource.volume = 0.15f;
+            Instance.audioSource.volume = 0.035f;
             DontDestroyOnLoad(gameObject);
         }
         else

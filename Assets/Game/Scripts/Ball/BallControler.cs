@@ -1,11 +1,12 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System;
 
 public class BallController : MonoBehaviour
 {
     [Header("Speed")]
-    [SerializeField] private float moveSpeed = 10f;
+    [SerializeField] private float movementDuration = 1.5f;
     [SerializeField] private float jumpScaleMultiplier = 1.5f;
 
     [Header("Boundaries")]
@@ -24,18 +25,19 @@ public class BallController : MonoBehaviour
     private PlayerSpike playerScript;
     [Header("Ball Component")]
     public Rigidbody2D rigidBody;
+    public CircleCollider2D ballCollider;
 
     private Camera mainCamera;
 
     public Vector3 originalScale;
     public bool isMoving = false;
     public bool isReturning = false;
-    public float movementDuration;
     public float currentTimer;
     private float progress;
 
     private Vector2 startPos;
     public Vector2 targetPos;
+    private Vector2 randomTarget;
 
     private void Awake()
     {
@@ -75,13 +77,15 @@ public class BallController : MonoBehaviour
                 float arcHeight = Mathf.Sin(progress * Mathf.PI);
                 Vector3 newScale = originalScale + (originalScale * jumpScaleMultiplier * arcHeight);
                 transform.localScale = newScale;
+                
+                ballCollider.radius = 1.88f * (newScale.x + 0.25f);
             }
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") && (!isMoving || Vector3.Distance(transform.position, target.transform.position) < targetCollider.radius + 1) && playerScript.isJumping)
+        if (collision.gameObject.CompareTag("Player") && (!isMoving || Vector3.Distance(transform.position, target.transform.position) < targetCollider.radius + 5) && playerScript.isJumping)
         {
             if (Mouse.current == null) return;
 
@@ -103,10 +107,15 @@ public class BallController : MonoBehaviour
 
     public void ReturnToRandomPlayerPosition()
     {
-        float targetPosX = Random.Range(minCourtBounds.x, maxCourtBounds.x);
-        float targetPosY = Random.Range(minCourtBounds.y, maxCourtBounds.y);
-        Vector2 randomTarget = new Vector2(targetPosX, targetPosY);
+        do
+        {
+            float targetPosX = UnityEngine.Random.Range(minCourtBounds.x, maxCourtBounds.x);
+            float targetPosY = UnityEngine.Random.Range(minCourtBounds.y, maxCourtBounds.y);
+            randomTarget = new Vector2(targetPosX, targetPosY);
 
+        } while (Vector2.Distance(randomTarget, transform.position) <= 4);
+
+        
         MoveToPosition(randomTarget, true);
     }
 
@@ -123,14 +132,13 @@ public class BallController : MonoBehaviour
 
         float distance = Vector2.Distance(startPos, targetPos);
 
-        if (distance < 0.1f)
+        if (distance == 0)
         {
             if (!returningState) ReturnToRandomPlayerPosition();
             else StopMovement();
             return;
         }
 
-        movementDuration = distance / moveSpeed;
         currentTimer = 0f;
         isMoving = true;
         isReturning = returningState;

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2997867803207542454}
   - component: {fileID: 5294926553215010923}
   - component: {fileID: 93056668764470661}
+  - component: {fileID: 1138702006845921890}
   m_Layer: 6
   m_Name: Ball
   m_TagString: Ball
@@ -169,7 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 293cae426f6704b48ab00b21f56b6516, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  moveSpeed: 8
+  movementDuration: 1.5
   jumpScaleMultiplier: 1.1
   minCourtBounds: {x: -5.29, y: -4.02}
   maxCourtBounds: {x: 5.28, y: -1.58}
@@ -179,9 +180,24 @@ MonoBehaviour:
   target: {fileID: 0}
   player: {fileID: 0}
   rigidBody: {fileID: 0}
+  ballCollider: {fileID: 0}
   originalScale: {x: 0, y: 0, z: 0}
   isMoving: 0
   isReturning: 0
-  movementDuration: 0
   currentTimer: 0
   targetPos: {x: 0, y: 0}
+--- !u!114 &1138702006845921890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3879669341959615817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f92f0f0e783b7e105adb68eaec674f36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BallConfigs
+  playerConfig: {fileID: 8154639370463680082, guid: a42f1a7dad69d8bfba8d7328c8498d34, type: 3}
+  moveSpeed: 5
+  damage: 10

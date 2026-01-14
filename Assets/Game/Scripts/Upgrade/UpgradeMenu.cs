@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class UpgradeMenu : MonoBehaviour
 {
     public Player_Upgrades playerUpgrades;
+    public BallConfigs ballConfigs;
     public Animator animator;
      public static UpgradeMenu Instance;
 

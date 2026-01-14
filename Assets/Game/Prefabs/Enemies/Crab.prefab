@@ -148,6 +148,7 @@ MonoBehaviour:
   Exp: 10
   player: {fileID: 1120379046703468187, guid: a42f1a7dad69d8bfba8d7328c8498d34, type: 3}
   playerConfig: {fileID: 8154639370463680082, guid: a42f1a7dad69d8bfba8d7328c8498d34, type: 3}
+  ballConfigs: {fileID: 1138702006845921890, guid: abe962b16b6d35800b4d03e6c5cfc2bb, type: 3}
   ball: {fileID: 3879669341959615817, guid: abe962b16b6d35800b4d03e6c5cfc2bb, type: 3}
   ballCollider: {fileID: 2997867803207542454, guid: abe962b16b6d35800b4d03e6c5cfc2bb, type: 3}
   isShooting: 0

@@ -12,16 +12,29 @@ using Random = UnityEngine.Random;
 
 public class Player_Upgrades : MonoBehaviour
 {
+    private int upgrade1;
+    private int upgrade2;
+    private int upgrade3;
     public UpgradeStats[] statsupgrades;
     //placeholder balls stats
     //placeholder other upgrades
 
     public UpgradeAbstract[] Choose_Options()
     {
-        UpgradeStats option1 = statsupgrades[0]; //placeholder
-        UpgradeStats option2 = statsupgrades[1]; // placeholder
-        UpgradeStats option3 = statsupgrades[2]; // placeholderu
+        upgrade1 = Random.Range(0, statsupgrades.Length);
 
+        do {
+            upgrade2 = Random.Range(0, statsupgrades.Length);
+        
+        } while (upgrade2 == upgrade1);
+
+        do {
+            upgrade3 = Random.Range(0, statsupgrades.Length);
+        } while (upgrade3 == upgrade1 || upgrade3 == upgrade2);
+
+        UpgradeStats option1 = statsupgrades[upgrade1];
+        UpgradeStats option2 = statsupgrades[upgrade2];
+        UpgradeStats option3 = statsupgrades[upgrade3];
         return new UpgradeAbstract[] { option1, option2, option3 };
     }
 }

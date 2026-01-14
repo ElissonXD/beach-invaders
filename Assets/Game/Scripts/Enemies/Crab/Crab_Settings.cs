@@ -6,6 +6,7 @@ public class Crab_Settings : EnemyAbstract
     public GameObject player;
     public Player_Config playerConfig;
     [Header("Ball Inputs")]
+    public BallConfigs ballConfigs;
     public GameObject ball;
     public CircleCollider2D ballCollider;
     public bool isShooting = false;
@@ -42,7 +43,7 @@ public class Crab_Settings : EnemyAbstract
     {
         if (collision.gameObject.CompareTag("Ball"))
         {
-            current_Health -= 6;
+            current_Health -= ballConfigs.damage;
         }
     }
 }

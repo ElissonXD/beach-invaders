@@ -4,6 +4,7 @@ using UnityEngine;
 public class UpgradeStats : UpgradeAbstract
 {
     public string type;
+    public BallConfigs ballConfigs;
 
     public override void Effect()
     {
@@ -20,8 +21,13 @@ public class UpgradeStats : UpgradeAbstract
         }
         else if (type == "Defense")
         {
-            level +=1;
+            level += 1;
             player_Config.playerDefense += 0.1f;
+        }
+        else if (type == "Damage")
+        {
+            level += 1;
+            ballConfigs.damage += 5f;
         }
     }
 

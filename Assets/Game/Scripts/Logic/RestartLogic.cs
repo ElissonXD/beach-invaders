@@ -7,7 +7,7 @@ public class RestartLogic : MonoBehaviour
     public TMP_Text counter_text;
     public void RestartGame()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(1);
     }
 
     public void UpdateCounterText(int counter)

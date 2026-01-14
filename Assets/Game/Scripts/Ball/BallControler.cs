@@ -24,6 +24,7 @@ public class BallController : MonoBehaviour
     private PlayerSpike playerScript;
     [Header("Ball Component")]
     public Rigidbody2D rigidBody;
+    private Vector2 randomPosition;
 
     private Camera mainCamera;
 
@@ -104,11 +105,10 @@ public class BallController : MonoBehaviour
 
     public void ReturnToRandomPlayerPosition()
     {
-        float targetPosX = Random.Range(minCourtBounds.x, maxCourtBounds.x);
-        float targetPosY = Random.Range(minCourtBounds.y, maxCourtBounds.y);
-        Vector2 randomTarget = new Vector2(targetPosX, targetPosY);
-
-        MoveToPosition(randomTarget, true);
+        do {
+            randomPosition = new Vector2(Random.Range(minCourtBounds.x, maxCourtBounds.x), Random.Range(minCourtBounds.y, maxCourtBounds.y));
+           } while (Vector2.Distance(randomPosition, player.transform.position) > 2.5f || (Vector2.Distance(randomPosition, transform.position) < 1.5f));
+        MoveToPosition(randomPosition, true);
     }
 
     private void MoveToPosition(Vector2 newTargetPos, bool returningState)

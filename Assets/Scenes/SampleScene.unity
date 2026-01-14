@@ -1122,7 +1122,7 @@ MonoBehaviour:
   - {fileID: 1688146727}
   waves:
   - enemies:
-    - {fileID: 6163413706383045111, guid: 555eee6bd11bd1d4095fa31d5c29a401, type: 3}
+    - {fileID: 458609380383240650, guid: 483fd0eb6d1ab2d48ab9ede2aa6f1f4e, type: 3}
   - enemies:
     - {fileID: 458609380383240650, guid: 483fd0eb6d1ab2d48ab9ede2aa6f1f4e, type: 3}
   - enemies:

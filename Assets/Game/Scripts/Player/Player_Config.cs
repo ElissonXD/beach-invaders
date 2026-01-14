@@ -17,6 +17,7 @@ public class Player_Config : MonoBehaviour
         {
             MusicManager.PlayBackgroundMusic(true);
             Player_Experience.Instance.OnExperienceChange += HandleExperienceChange;
+            Time.timeScale = 1f;
         }
     }
     void Update()

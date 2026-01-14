@@ -10,6 +10,7 @@ TagManager:
   - Sand
   - Shoot
   - Undefined
+  - Ball
   layers:
   - Default
   - TransparentFX

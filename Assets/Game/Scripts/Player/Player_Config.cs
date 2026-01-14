@@ -57,6 +57,7 @@ public class Player_Config : MonoBehaviour
         if (other.gameObject.CompareTag("Bubble"))
         {
             current_Health -= 10 * (1 - playerDefense);
+            SoundEffectManager.Play("Bubble");
             Destroy(other.gameObject);
         } else if (other.gameObject.CompareTag("Shoot"))
         {

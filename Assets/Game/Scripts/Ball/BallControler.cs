@@ -84,7 +84,7 @@ public class BallController : MonoBehaviour
         if (collision.gameObject.CompareTag("Player") && (!isMoving || Vector3.Distance(transform.position, target.transform.position) < targetCollider.radius + 1) && playerScript.isJumping)
         {
             if (Mouse.current == null) return;
-
+            SoundEffectManager.Play("Spike");
             Vector2 mouseScreenPos = Mouse.current.position.ReadValue();
             Vector3 mouseWorldPos = mainCamera.ScreenToWorldPoint(mouseScreenPos);
             mouseWorldPos.z = 0f;
@@ -94,6 +94,7 @@ public class BallController : MonoBehaviour
 
         else if (collision.gameObject.CompareTag("Enemy") && !isReturning)
         {
+            SoundEffectManager.Play("EnemyHit");
             isMoving = false;
             isReturning = true;
             ReturnToRandomPlayerPosition();
